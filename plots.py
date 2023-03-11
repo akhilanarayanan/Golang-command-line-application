@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 def main():
-  # df = pd.read_csv("small_output.csv")
-  df = pd.read_csv("large_output.csv")
+  df = pd.read_csv("small_output.csv")
+  # df = pd.read_csv("large_output.csv")
   # Average size of bytes across all the entries
   print("average byte size:", df.iloc[:, 4].mean())
   
@@ -18,7 +18,7 @@ def main():
   plt.show()
   
   # compute the CDF of the response time column
-  x, y = cdf(durationCol)
+  x, y = cdf(durationCol / (10**6))  # converts nanoseconds to milliseconds
 
   # find the specified percentiles
   percentiles = [50, 70, 75, 80, 85, 90, 95, 99]
@@ -28,6 +28,7 @@ def main():
   # plot the CDF
   plt.plot(x, y)
   plt.title('CDF of Response Times')
+  plt.xlabel('Time (ms)')
   plt.ylabel('Percentile')
   plt.show()  
   
