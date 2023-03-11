@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 def main():
-  df = pd.read_csv("small_output.csv")
-  # df = pd.read_csv("large_output.csv")
+  # df = pd.read_csv("small_output.csv")
+  df = pd.read_csv("large_output.csv")
   # Average size of bytes across all the entries
   print("average byte size:", df.iloc[:, 4].mean())
   
