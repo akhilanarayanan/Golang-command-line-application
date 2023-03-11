@@ -13,7 +13,6 @@ def main():
   durationCol = (df.iloc[:, 3] - df.iloc[:, 2])
   plt.plot(durationCol / (10**6))  # converts nanoseconds to milliseconds
   plt.title('Request Response Times')
-  plt.xlabel('Request ID')
   plt.ylabel('Time (ms)')
   plt.show()
   

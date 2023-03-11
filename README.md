@@ -49,6 +49,4 @@ second).
 ## Concurrency
 The last step of this project was to implement `getinfo` using concurrency.
 
-I've included 8 images line plots gotten using data from `small.txt` and `large.txt` and having used concurrency and having not used concurrency. 
-
-The `RequestID` is the order that URL was in the original text files. But the order they are in the csv file is the order that the request completed.
+The `RequestID` is the order that URL was in the original text files. But the order they are in the csv file is the order that the request completed, so the numbers will appear to be all over the place.
