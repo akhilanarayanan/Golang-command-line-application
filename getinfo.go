@@ -61,7 +61,7 @@ func main() {
 	inputFile := flag.String("file", "", "")
 	flag.Parse()
 	
-	writeFile, createErr := os.Create("small_output.csv")
+	writeFile, createErr := os.Create("output.csv")
 	// writeFile, createErr := os.Create("large_output.csv")
 	if createErr != nil {
 		log.Println("failed creating file:", createErr)
@@ -95,6 +95,9 @@ func main() {
 		resChan := make(chan queryRes)
 		for fileScanner.Scan() {
 			go getInfo("http://" + fileScanner.Text(), id, resChan)
+			id++
+		}
+		for k := 0; k < id; k++ {
 			res := <-resChan
 			if res.err != nil {
 				log.Println("file getinfo error:", res.err)
@@ -112,7 +115,6 @@ func main() {
 					return
 				}
 			}
-			id++
 		}
 		readFile.Close()
 	}

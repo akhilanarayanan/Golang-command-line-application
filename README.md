@@ -1,6 +1,14 @@
 ## Welcome!
-This is a GoLang command line application I created which takes into account a URL or a
-or a file containing multiple URLs from the user.
+This is a GoLang command line application I created which takes a URL or a
+or a file containing multiple URLs as arguments. The program makes HTTP get requests and saves the following response information:
+
+- Request ID
+- URL Queried
+- Query Response Status / Code [HTTP response codes]
+- Start Request Time
+- End Request Time
+- Total Size of Response bytes
+
 
 ## Linux Terminal Commands
 
@@ -9,8 +17,6 @@ or a file containing multiple URLs from the user.
 This prints a response to the terminal in the following format:
 
 `{<URL queried> <HTTP Status Code> <start request time (nanoseconds)> <end request time (nanoseconds)> <total size of response bytes> <RequestID> <Error>}`
-
-The `RequestID` is just the order that the requests were made.
 
 ### `./getinfo --file <filename.txt>`
 
@@ -41,6 +47,8 @@ two plots will appear sequentially (you have to kill the first plot to see the
 second).
 
 ## Concurrency
-I tried to implement `getinfo` using concurrency but it does not seem to have made any difference in response times from running it sequentially...
+The last step of this project was to implement `getinfo` using concurrency.
 
-I've included 8 images line plots gotten using data from `small.txt` and `large.txt` and having used concurrency and having not used concurrency. There does not seem to be any significant differences in the graphs between concurrent and sequential.
+I've included 8 images line plots gotten using data from `small.txt` and `large.txt` and having used concurrency and having not used concurrency. 
+
+The `RequestID` is the order that URL was in the original text files. But the order they are in the csv file is the order that the request completed.
